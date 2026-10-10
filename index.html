@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifat Mia | Frontend Developer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #f5f5f2;
+      color: #080808;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid #e5e5e5;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-content {
+      min-height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ff5c1b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff5c1b;
+    }
+
+    .nav-btn {
+      padding: 13px 17px;
+      border: 0;
+      background: #080808;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 5px;
+    }
+    .nav-btn:hover {
+      background: #ff5c1b;
+    }
+
+
+    .menu-btn {
+      display: none;
+      background: #080808;
+      color: white;
+      padding: 10px 13px;
+      border: 0;
+    }
+
+    /* HERO */
+.hero {
+  min-height: 680px;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 50px;
+}
+
+/* LEFT CONTENT */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(60px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin: 25px 0;
+}
+
+.hero-description {
+  max-width: 470px;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 22px;
+  border: 1px solid #222;
+  font-size: 11px;
+  font-weight: 700;
+  transition: 0.3s;
+  margin-top: -10px;
+  border-radius: 5px;
+}
+
+.secondary-btn:hover {
+  background: #ff5c1b;
+  border-color: #ff5c1b;
+  transform: translateY(-5px);
+}
+
+        .about-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .about-socials a {
+            font-size: 12px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .about-socials a:hover {
+            color: #ff5c1b;
+        }
+
+/* RIGHT IMAGE */
+
+.hero-image {
+  min-height: 480px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hero-image img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 15px 20px #0001);
+  border: 2px solid black;
+  border-top-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+}
+
+.hero-image img {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.hero-image img:hover {
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 20px 25px #0003);
+  border-color: #ff5c1b;
+}
+
+
+/* IMAGE BADGE */
+
+.image-badge {
+  position: absolute;
+  z-index: 2;
+  bottom: 35px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 17px;
+  background: white;
+  box-shadow: 0 10px 35px #00000012;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #25b56a;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 55px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(58px, 12vw, 90px);
+  }
+
+  .hero-image {
+    min-height: 400px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero-image img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    min-height: 320px;
+  }
+
+  .hero-image img {
+    height: 320px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .hero-buttons .btn,
+  .secondary-btn {
+    padding: 14px;
+  }
+
+  .image-badge {
+    bottom: 20px;
+    font-size: 10px;
+  }
+}
+    /* INTRO */
+
+    .intro {
+      padding: 100px 0;
+      text-align: center;
+      background: white;
+    }
+
+    .intro h2 {
+      max-width: 950px;
+      margin: 25px auto;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .intro p {
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* SERVICES */
+
+    .dark-section {
+      background: #050505;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(65px, 10vw, 125px);
+      line-height: .9;
+      text-transform: uppercase;
+      margin: 25px 0 50px;
+    }
+
+    .service {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 25px 30px;
+      min-height: 150px;
+      border: 1px solid #333;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      transition: .3s;
+    }
+
+    .service:hover {
+      border-color: #ff5c1b;
+      transform: translateX(5px);
+    }
+
+    .service h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      text-transform: uppercase;
+    }
+
+    .service p {
+      color: #999;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .service-art {
+      width: 190px;
+      height: 90px;
+      flex-shrink: 0;
+      border-radius: 100px;
+      background: linear-gradient(120deg, #ffb64a, #ff4517);
+      display: grid;
+      place-items: center;
+    }
+
+    .service-art span {
+      font-size: 40px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .service:nth-of-type(3) .service-art {
+      background: linear-gradient(120deg, #f4a9d8, #8663e9);
+    }
+
+    .service:nth-of-type(4) .service-art {
+      background: linear-gradient(120deg, #ffb64a, #ff4517);
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      padding: 100px 0;
+      background: #efefeb;
+    }
+
+    .projects-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+
+    .projects-header .section-title {
+      margin-bottom: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      padding: 18px;
+      background: white;
+      border: 1px solid #e5e5e5;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+    }
+
+    .project-image {
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #202020, #444);
+    }
+
+    .project:nth-child(2) .project-image {
+      background: linear-gradient(135deg, #ffb46e, #d84a20);
+    }
+
+    .project:nth-child(3) .project-image {
+      background: linear-gradient(135deg, #d8d1ff, #f7d7dc);
+    }
+
+    .project:nth-child(4) .project-image {
+      background: linear-gradient(135deg, #c8eee0, #76b6a3);
+    }
+
+    .mockup {
+      width: 90%;
+      background: #fafaf7;
+      color: #111;
+      padding: 25px;
+      box-shadow: 0 15px 40px #0003;
+      transform: rotate(-3deg);
+    }
+
+    .mockup h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: .9;
+      text-transform: uppercase;
+    }
+
+    .mockup p {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    .project-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 20px 0 3px;
+    }
+
+    .project-info h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+
+    .project-info p {
+      font-size: 10px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .project-link {
+      font-size: 25px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      padding: 100px 0;
+      background: #050505;
+      color: white;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 50px 1fr 150px;
+      gap: 20px;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .skill-row span {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .skill-row h3 {
+      font-size: 16px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 100px 0;
+      background: #111;
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(60px, 9vw, 105px);
+      line-height: .9;
+      text-transform: uppercase;
+      margin: 25px 0;
+    }
+
+    .contact-copy {
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 380px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 17px;
+      background: #1d1d1d;
+      color: white;
+      border: 1px solid #383838;
+      outline: none;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #ff5c1b;
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      justify-content: space-between;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 0 25px;
+      background: #050505;
+      color: white;
+    }
+
+    .footer-name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(80px, 18vw, 210px);
+      font-weight: 800;
+      letter-spacing: -5px;
+      line-height: .9;
+      margin: 50px 0;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #999;
+      font-size: 15px;
+      
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero-bottom {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .service {
+        border-radius: 25px;
+      }
+
+      .service-art {
+        width: 120px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .skill-row {
+        grid-template-columns: 35px 1fr 90px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-btn {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 19vw;
+        letter-spacing: -1px;
+      }
+
+      .intro,
+      .dark-section,
+      .projects,
+      .skills,
+      .contact {
+        padding: 70px 0;
+      }
+
+      .service {
+        flex-wrap: wrap;
+        padding: 22px;
+      }
+
+      .service-art {
+        width: 100%;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 240px;
+      }
+
+      .projects-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .skill-row {
+        grid-template-columns: 25px 1fr;
+      }
+
+      .skill-row span:last-child {
+        display: none;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#home" class="logo">RIFAT<span>.</span></a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div>
+        <a href="#contact" class="nav-btn">LET'S TALK ↗</a>
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container hero-container">
+
+    <!-- Left Side Content -->
+    <div class="hero-content">
+      <p class="eyebrow">
+        HELLO, I'M RIFAT MIA
+      </p>
+
+      <h1>
+        Creative<br>
+        <span style="color: #ff5c1b;" class="outline">Frontend</span><br>
+        Developer<span style="color: #ff5c1b;" class="orange">.</span>
+      </h1>
+
+      <p class="hero-description">
+        I build modern, responsive and user-friendly websites
+        using HTML, CSS, JavaScript, Bootstrap and WordPress.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">
+          VIEW PROJECTS ↗
+        </a>
+
+        <a href="#contact" class="secondary-btn">
+          CONTACT ME
+        </a>
+      </div>
+
+      <div class="about-socials">
+                    <a href="https://github.com/md-rifat-mia" target="_blank" rel="noopener noreferrer">
+                        <img style="height: 30px; width: 100%;" src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt=".">
+                    </a>
+
+                    <a href="#"><img style="height: 30px; width: 100%;" src="https://www.iconpacks.net/icons/1/free-linkedin-icon-112-thumb.png" alt="."></a>
+
+                    <a href="https://www.instagram.com/rifat_web_developer_/"><img style="height: 30px; width: 100%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdeyYF13UdgMpGF9kzzyG--u3vufHXojqFgTwFH-KVRg&s=10" alt="."></a>
+                </div>
+    </div>
+
+    <!-- Right Side Image -->
+    <div class="hero-image">
+      <div class="image-bg"></div>
+
+      <img
+        src="img/rifat-1.jfif"
+        alt="Rifat Mia - Frontend Developer"
+      >
+
+      <div class="image-badge">
+        <span class="badge-dot"></span>
+        Available for Projects
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ABOUT -->
+  <section class="intro" id="about">
+    <div class="container reveal">
+      <p class="eyebrow">A little about me</p>
+
+      <h2>
+        I CREATE MODERN DIGITAL EXPERIENCES
+        THAT COMBINE CLEAN DESIGN,
+        RESPONSIVE LAYOUTS AND FUNCTIONAL CODE.
+      </h2>
+
+      <p>Frontend Developer · WordPress Enthusiast</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="dark-section" id="services">
+    <div class="container">
+      <p class="eyebrow">01 — What I do</p>
+
+      <h2 class="section-title">
+        My <span style="color:#888">Services</span>
+      </h2>
+
+      <article class="service reveal">
+        <div>
+          <h3>Frontend Development</h3>
+          <p>HTML · CSS · JavaScript · Bootstrap</p>
+        </div>
+        <div class="service-art"><span>&lt;/&gt;</span></div>
+      </article>
+
+      <article class="service reveal">
+        <div>
+          <h3>WordPress Website</h3>
+          <p>WordPress · Elementor · Responsive Design</p>
+        </div>
+        <div class="service-art"><span>W</span></div>
+      </article>
+
+      <article class="service reveal">
+        <div>
+          <h3>Website Design</h3>
+          <p>Landing Pages · UI Implementation</p>
+        </div>
+        <div class="service-art"><span>✳</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <p class="eyebrow">02 — Selected work</p>
+          <h2 class="section-title">Featured<br>Projects<span class="orange">.</span></h2>
+        </div>
+
+        <a href="#contact" class="btn">HAVE A PROJECT? ↗</a>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project reveal">
+          <div class="project-image">
+            <div class="mockup">
+              <h3>Creative<br>Studio</h3>
+              <p>Modern website design for creative brands.</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Creative Website</h3>
+              <p>HTML · CSS · JavaScript</p>
+            </div>
+            <a href="#contact" class="project-link">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-image">
+            <div class="mockup">
+              <h3>Shop<br>Online.</h3>
+              <p>Responsive e-commerce website design.</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>E-commerce Website</h3>
+              <p>HTML · CSS · JavaScript</p>
+            </div>
+            <a href="https://md-rifat-mia.github.io/e-commerce-website/"
+               target="_blank" class="project-link">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-image">
+            <div class="mockup">
+              <h3>Academic<br>Website</h3>
+              <p>Clean layout for educational institutions.</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>Academic Website</h3>
+              <p>HTML · Bootstrap</p>
+            </div>
+            <a href="https://md-rifat-mia.github.io/academic-website-html-bootstrap-inline-css/"
+               target="_blank" class="project-link">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-image">
+            <div class="mockup">
+              <h3>User<br>Directory</h3>
+              <p>Dynamic data from a public API.</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <h3>User Data Project</h3>
+              <p>JavaScript · Fetch API</p>
+            </div>
+            <a href="https://md-rifat-mia.github.io/address-project-html-bootstrap-js-responsive/"
+               target="_blank" class="project-link">↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills">
+    <div class="container">
+      <p class="eyebrow">03 — My toolkit</p>
+      <h2 class="section-title">Tools & Skills</h2>
+
+      <div class="skill-row">
+        <span>01</span>
+        <h3>HTML5 & CSS3</h3>
+        <span>DEVELOPMENT</span>
+      </div>
+
+      <div class="skill-row">
+        <span>02</span>
+        <h3>JavaScript ES6+</h3>
+        <span>INTERACTION</span>
+      </div>
+
+      <div class="skill-row">
+        <span>03</span>
+        <h3>Bootstrap 5</h3>
+        <span>RESPONSIVE UI</span>
+      </div>
+
+      <div class="skill-row">
+        <span>04</span>
+        <h3>WordPress & Elementor</h3>
+        <span>CMS</span>
+      </div>
+
+      <div class="skill-row">
+        <span>05</span>
+        <h3>Git & GitHub</h3>
+        <span>TOOLS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">04 — Let's connect</p>
+
+        <h2>
+          Have a<br>
+          project<span class="orange">?</span><br>
+          Let's talk.
+        </h2>
+
+        <p class="contact-copy">
+          Have an idea or need a website?
+          Send me a message and let's discuss your project.
+        </p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+
+        <input type="email" name="email" placeholder="Email address" required>
+
+        <input type="text" name="subject" placeholder="Subject">
+
+        <textarea name="message"
+                  placeholder="Tell me about your project..."
+                  required></textarea>
+
+        <button class="btn" type="submit">
+          SEND MESSAGE <span>↗</span>
+        </button>
+
+        <p id="formMessage" style="color:#aaa;font-size:11px">
+          Demo form — connect a form service to receive messages.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="#home" class="logo">RIFAT<span>.</span></a>
+
+      <div class="footer-name">RIFAT<span style="color: #ff5c1b;">.</span></div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Rifat Mia</span>
+        <span>Frontend Developer · Bangladesh</span>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    document.getElementById("menuBtn").addEventListener("click", function () {
+      const nav = document.querySelector(".nav-links");
+
+      if (nav.style.display === "flex") {
+        nav.style.display = "";
+      } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "75px";
+        nav.style.left = "0";
+        nav.style.width = "100%";
+        nav.style.padding = "25px";
+        nav.style.background = "#fff";
+        nav.style.borderBottom = "1px solid #ddd";
+      }
+    });
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(function (element) {
+      observer.observe(element);
+    });
+
+    // Demo contact form
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      document.getElementById("formMessage").textContent =
+        "Thanks! This demo form is not connected to an email service yet.";
+    });
+  </script>
+
+</body>
+</html>

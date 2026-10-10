@@ -1,0 +1,825 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Rifat Mia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f5f2;
+      --black: #111111;
+      --orange: #ff5c1b;
+      --white: #ffffff;
+      --gray: #666666;
+      --border: #ddddda;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(245, 245, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+     .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--orange);
+    }
+
+    .nav-btn {
+      background: var(--black);
+      color: var(--white);
+      padding: 12px 22px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--orange);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px #ff5c1b30;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 100px 0 85px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .page-hero h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(55px, 8vw, 95px);
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .page-hero h1 span {
+      color: var(--orange);
+    }
+
+    .page-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--gray);
+      font-size: 16px;
+    }
+
+    /* SECTION COMMON */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(38px, 5vw, 75px);
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 span {
+      color: var(--orange);
+    }
+
+    .section-heading p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 35px 28px;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s, box-shadow 0.35s,
+                  border-color 0.35s;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 4px;
+      background: var(--orange);
+      transition: width 0.35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--orange);
+      box-shadow: 0 18px 35px #0000000d;
+    }
+
+    .service-card:hover::before {
+      width: 100%;
+    }
+
+    .service-number {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 18px;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff0e9;
+      color: var(--orange);
+      border-radius: 10px;
+      font-size: 29px;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 29px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .service-list li {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      color: var(--orange);
+      font-weight: 700;
+      margin-right: 9px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 700;
+      transition: gap 0.3s;
+    }
+
+    .service-link:hover {
+      gap: 14px;
+    }
+
+    /* PROCESS */
+    .process-section {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .process-section .section-heading p {
+      color: #b7b7b7;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .process-card {
+      padding: 25px 20px;
+      border: 1px solid #ffffff25;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .process-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-5px);
+    }
+
+    .process-number {
+      color: var(--orange);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 43px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .process-card h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 25px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: #b7b7b7;
+      font-size: 13px;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      background: var(--orange);
+      padding: 55px 35px;
+      border-radius: 12px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .cta-box h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(36px, 5vw, 75px);
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .cta-box p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      font-size: 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 14px 27px;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px #00000020;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 28px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-content p {
+      color: #b7b7b7;
+      font-size: 13px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-links a {
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--orange);
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 17px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-content {
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .page-hero {
+        padding: 75px 0 65px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 30px 24px;
+      }
+
+      .cta {
+        padding: 55px 0;
+      }
+
+      .cta-box {
+        padding: 40px 22px;
+      }
+
+      .footer-content {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-content">
+
+      <a href="index.html" class="logo">RIFAT<span>.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html" class="active">Services</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a href="contact.html" class="nav-btn">Let's Talk ↗</a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="eyebrow">What I Do</span>
+        <h1>My <span>Services</span></h1>
+        <p>
+          I create modern, responsive, and user-friendly websites
+          to help businesses and individuals build a strong online presence.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">How I Can Help</span>
+          <h2>Services I <span>Provide</span></h2>
+          <p>
+            From website design to WordPress development, I focus on
+            clean design, usability, and responsive layouts.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Service 1 -->
+          <article class="service-card reveal">
+            <div class="service-number">01 / SERVICE</div>
+            <div class="service-icon">⌨</div>
+            <h3>Frontend Development</h3>
+            <p>
+              I build clean and responsive website interfaces
+              using modern frontend technologies.
+            </p>
+            <ul class="service-list">
+              <li>HTML5 and CSS3</li>
+              <li>JavaScript functionality</li>
+              <li>Responsive website layout</li>
+              <li>Cross-device compatibility</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card reveal">
+            <div class="service-number">02 / SERVICE</div>
+            <div class="service-icon">▣</div>
+            <h3>WordPress Development</h3>
+            <p>
+              I create and customize WordPress websites
+              according to your needs and design preferences.
+            </p>
+            <ul class="service-list">
+              <li>WordPress website setup</li>
+              <li>Elementor page design</li>
+              <li>Website customization</li>
+              <li>Mobile-friendly pages</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card reveal">
+            <div class="service-number">03 / SERVICE</div>
+            <div class="service-icon">✧</div>
+            <h3>Website Design</h3>
+            <p>
+              I design attractive and easy-to-use website layouts
+              with a focus on visual consistency.
+            </p>
+            <ul class="service-list">
+              <li>Modern website layouts</li>
+              <li>Landing page design</li>
+              <li>Typography and color styling</li>
+              <li>Clean user interface</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card reveal">
+            <div class="service-number">04 / SERVICE</div>
+            <div class="service-icon">▤</div>
+            <h3>Landing Page</h3>
+            <p>
+              I build focused landing pages that present your
+              products, services, or business clearly.
+            </p>
+            <ul class="service-list">
+              <li>Hero section design</li>
+              <li>Call-to-action buttons</li>
+              <li>Feature and service sections</li>
+              <li>Responsive page structure</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+          <!-- Service 5 -->
+          <article class="service-card reveal">
+            <div class="service-number">05 / SERVICE</div>
+            <div class="service-icon">🛒</div>
+            <h3>E-commerce Website</h3>
+            <p>
+              I can help build online store layouts to present
+              products and make shopping easier for customers.
+            </p>
+            <ul class="service-list">
+              <li>Product listing layouts</li>
+              <li>Product detail pages</li>
+              <li>WooCommerce page customization</li>
+              <li>Responsive shop design</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+          <!-- Service 6 -->
+          <article class="service-card reveal">
+            <div class="service-number">06 / SERVICE</div>
+            <div class="service-icon">⚙</div>
+            <h3>Website Fixes</h3>
+            <p>
+              I help identify and fix common frontend layout,
+              styling, and responsive design issues.
+            </p>
+            <ul class="service-list">
+              <li>CSS layout corrections</li>
+              <li>Mobile responsiveness fixes</li>
+              <li>HTML and CSS bug fixing</li>
+              <li>Basic JavaScript troubleshooting</li>
+            </ul>
+            <a href="contact.html" class="service-link">
+              Discuss Your Project →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK PROCESS -->
+    <section class="section process-section">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">My Workflow</span>
+          <h2>How I <span>Work</span></h2>
+          <p>
+            A simple process to understand your needs and
+            work toward the right website solution.
+          </p>
+        </div>
+
+        <div class="process-grid">
+
+          <div class="process-card reveal">
+            <div class="process-number">01</div>
+            <h3>Discussion</h3>
+            <p>
+              Understand your requirements, goals, and preferred design.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">02</div>
+            <h3>Planning</h3>
+            <p>
+              Organize the page structure, layout, and key features.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">03</div>
+            <h3>Development</h3>
+            <p>
+              Build the website and check its responsiveness.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">04</div>
+            <h3>Delivery</h3>
+            <p>
+              Review the final work and make agreed improvements.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Have a Project in Mind?</h2>
+          <p>
+            Let's discuss your website idea and explore how I can
+            help turn it into a responsive and user-friendly website.
+          </p>
+          <a href="contact.html" class="cta-btn">Let's Work Together ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Rifat Mia. All rights reserved.</p>
+
+      <div class="social-links">
+        <a href="https://github.com/md-rifat-mia"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="contact.html">Contact ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll("#navLinks a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Automatically update copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function (element) {
+        element.classList.add("show");
+      });
+    }
+  </script>
+
+</body>
+</html>
